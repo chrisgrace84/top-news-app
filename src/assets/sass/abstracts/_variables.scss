@@ -1,0 +1,37 @@
+// MQ
+$size__xxs: 400px;
+$size__xs: 460px;
+$size__s: 660px;
+$size__m: 720px;
+$size__l: 980px;
+$size__xl: 1024px;
+$size__max-width: $size__xl;
+
+$mq-breakpoints: (
+  xxs: $size__xxs,
+  xs: $size__xs,
+  s: $size__s,
+  m: $size__m,
+  l: $size__l,
+  xl: $size__xl,
+  max: $size__max-width,
+);
+
+// Other sizes
+$spacing--xl: 50px;
+$spacing--l: 40px;
+$spacing--m: 30px;
+$spacing--s: 25px;
+$spacing--xs: 20px;
+$spacing--xxs: 15px;
+$spacing--mini: 10px;
+$size__main-padding: $spacing--l;
+
+// Font
+$font__base-size: 16px;
+$font__body-family: 'News Cycle', sans-serif;
+
+// Colors
+$color-tn-blue: #1f1c2c;
+$color-black: #000000;
+$color-white: #FFFFFF;
