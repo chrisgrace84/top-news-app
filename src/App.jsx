@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import NewsHeadlines from './components/NewsHeadlines'
 
 import newsLogo from './assets/images/logo.svg'
 import './assets/sass/main.scss'
@@ -9,9 +10,10 @@ function App() {
   return (
     <div className="news-app">
       <div className="news-app__header">
-        <img src={newsLogo} className="logo react" alt="Global News" />
+        <img src={newsLogo} alt="Global News" />
         <h1>Global Top News</h1>
       </div>
+      <NewsHeadlines />
     </div>
   )
 }
