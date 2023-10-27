@@ -10,4 +10,23 @@
   &__news {
     text-align: center;
   }
+
+  &__countries {
+    padding-top: $spacing--m;
+    padding-bottom: $spacing--m;
+    display: flex;
+    justify-content: center;
+    gap: $spacing--xxs;
+
+    &-button {
+      font-size: 18px;
+      font-weight: 560;
+      background: none;
+      border: 1px solid white;
+      border-radius: 5px;
+      padding: 5px 20px;
+      color: white;
+      cursor: pointer;
+    }
+  }
 }

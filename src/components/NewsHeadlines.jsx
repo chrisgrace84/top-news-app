@@ -1,9 +1,9 @@
-export default function NewsHeadlines({ headlines }) {
+export default function NewsHeadlines({ headlines, country }) {
   const topHeadlines = headlines.slice(0, 5);
 
   return (
     <section className="news-app__news">
-      <h2>Top News in [Country]</h2>
+      <h2>Top News in {country?.countryName}</h2>
       {!headlines && <p>No News Available</p>}
       {headlines &&
         <div className="news-app__news-items">
