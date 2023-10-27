@@ -1,9 +1,9 @@
-export default function CountrySelect({ countries }) {
+export default function CountrySelect({ countries, handleSetCountry }) {
 
   return (
     <section className="news-app__countries">
       {countries.map(({ code, countryName }) => (
-        <button className="news-app__countries" key={code} role="button">
+        <button onClick={() => handleSetCountry(code)} className="news-app__countries-button" key={code} role="button">
           {countryName}
         </button>
       ))}

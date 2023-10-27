@@ -8,11 +8,16 @@ import './assets/sass/main.scss'
 
 function App() {
   const [headlines, setHeadlines] = useState([])
+  const [country, setCountry] = useState(['gb'])
+
+  const handleSetCountry = (code) => {
+    setCountry(code)
+  }
 
   useEffect(() => {
     async function fetchNews() {
       try {
-        const res = await fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=dd96ce9bd71b4a96ba9ada85181978c6')
+        const res = await fetch(`https://newsapi.org/v2/top-headlines?country=${country}&apiKey=dd96ce9bd71b4a96ba9ada85181978c6`)
         const resData = await res.json()
 
         setHeadlines(resData?.articles)
@@ -22,7 +27,7 @@ function App() {
     }
 
     fetchNews()
-  }, [])
+  }, [country])
 
   return (
     <div className="news-app">
@@ -30,7 +35,10 @@ function App() {
         <img src={newsLogo} alt="Global News" />
         <h1>Global Top News</h1>
       </div>
-      <CountrySelect countries={countries} />
+      <CountrySelect
+        countries={countries}
+        handleSetCountry={handleSetCountry}
+      />
       <NewsHeadlines headlines={headlines} />
     </div>
   )
