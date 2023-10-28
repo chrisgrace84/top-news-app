@@ -3,6 +3,7 @@
 @import 'sass-mq/mq';
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
+@import 'abstracts/util';
 
 //  Base
 //  ---------------------------------------------
@@ -12,3 +13,4 @@
 //  Components
 //  ---------------------------------------------
 @import 'components/news-app';
+@import 'components/news-headline';

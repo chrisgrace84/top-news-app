@@ -25,6 +25,7 @@ $spacing--s: 25px;
 $spacing--xs: 20px;
 $spacing--xxs: 15px;
 $spacing--mini: 10px;
+$spacing--nudge: 10px;
 $size__main-padding: $spacing--l;
 
 // Font
@@ -35,3 +36,6 @@ $font__body-family: 'News Cycle', sans-serif;
 $color-tn-blue: #1f1c2c;
 $color-black: #000000;
 $color-white: #FFFFFF;
+
+$color-active: lighten($color-tn-blue, 20%);
+$color-hover: lighten($color-tn-blue, 40%);

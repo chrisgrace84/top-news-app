@@ -9,6 +9,24 @@
 
   &__news {
     text-align: center;
+    padding-bottom: $spacing--m;
+
+    &-items {
+      max-width: 840px;
+      margin: auto;
+      display: grid;
+      gap: $spacing--m;
+
+      @include mq($from: s) {
+        grid-template-columns: repeat(2, 1fr);
+
+        &-headline {
+          &:first-child {
+            grid-column: 1/-1;
+          }
+        }
+      }
+    }
   }
 
   &__countries {
@@ -30,20 +48,20 @@
 
     &-button {
       font-size: 18px;
-      font-weight: 560;
+      font-weight: 600;
       background: none;
       border: 1px solid white;
-      border-radius: 5px;
-      padding: 5px 20px;
+      border-radius: $spacing--nudge;
+      padding: $spacing--nudge $spacing--xs;
       color: white;
       cursor: pointer;
 
       &:hover {
-        background: lighten($color-tn-blue, 40%);
+        background: $color-hover;
       }
 
       &--active {
-        background: lighten($color-tn-blue, 20%);
+        background: $color-active;
       }
     }
   }

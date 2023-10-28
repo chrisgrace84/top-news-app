@@ -1,0 +1,36 @@
+@use "sass:math";
+
+.news-headline {
+  $gap: $spacing--m;
+  text-align: left;
+  border: 1px solid $color-active;
+  border-radius: $spacing--xxs;
+  padding: $spacing--s;
+
+  &__meta {
+    @include mq($from: s) {
+      display: flex;
+      gap: $gap;
+    }
+  }
+
+  &__author {
+    position: relative;
+
+    @include mq($from: s) {
+      &:before {
+        @include pseudo-element-create;
+        width: 1px;
+        height: 75%;
+        background-color: $color-white;
+        position: absolute;
+        right: -#{math.div($gap, 2)};
+        top: 15%;
+      }
+    }
+  }
+
+  &:hover {
+    background-color: $color-active;
+  }
+}
