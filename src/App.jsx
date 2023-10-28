@@ -36,12 +36,12 @@ function App() {
         <h1>Global Top News</h1>
       </div>
       <CountrySelect
+        countryState={country}
         countries={countries}
         handleSetCountry={handleSetCountry}
       />
       <NewsHeadlines
         headlines={headlines}
-        country={country}
       />
     </div>
   )
