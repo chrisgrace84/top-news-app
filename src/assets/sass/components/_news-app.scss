@@ -11,6 +11,18 @@
     text-align: center;
     padding-bottom: $spacing--m;
 
+    &-title {
+      font-size: 22px;
+      font-weight: 400;
+      margin-top: $spacing--mini;
+    }
+
+    &-country {
+      font-size: 26px;
+      font-weight: 600;
+      padding-bottom: $spacing--m;
+    }
+
     &-items {
       max-width: 840px;
       margin: auto;

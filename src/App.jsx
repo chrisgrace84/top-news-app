@@ -5,15 +5,13 @@ import Errors from './components/Errors'
 
 import newsLogo from './assets/images/logo.svg'
 import { countries } from './data'
-import { getQueryString } from './util'
+import { getCountryByCode, getQueryString } from './functions.js'
 
 import './assets/sass/main.scss'
 
-const initialStateUkNews = countries.find((country) => country?.code === 'gb');
-
 function App() {
   const [headlines, setHeadlines] = useState([])
-  const [country, setCountry] = useState(initialStateUkNews)
+  const [country, setCountry] = useState(getCountryByCode('gb'))
   const [errorMessage, setErrorMessage] = useState(false)
 
   const handleSetCountry = (country) => {
@@ -47,17 +45,18 @@ function App() {
 
   return (
     <div className="news-app">
-      <div className="news-app__header">
+      <section className="news-app__header">
         <img src={newsLogo} alt="Global News" />
         <h1>Global Top News</h1>
-      </div>
+      </section>
       <CountrySelect
         countryState={country}
         countries={countries}
         handleSetCountry={handleSetCountry}
       />
-      {!errorMessage &&
+      {!errorMessage && headlines && headlines.length !== 0 &&
         <NewsHeadlines
+          country={country}
           headlines={headlines}
         />
       }

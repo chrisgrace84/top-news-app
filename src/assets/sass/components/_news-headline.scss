@@ -17,24 +17,13 @@
 
     @include mq($from: l) {
       display: flex;
+      justify-content: space-between;
       gap: $gap;
     }
   }
 
   &__author {
     position: relative;
-
-    @include mq($from: l) {
-      &:before {
-        @include pseudo-element-create;
-        width: 1px;
-        height: 75%;
-        background-color: $color-white;
-        position: absolute;
-        right: -#{math.div($gap, 2)};
-        top: 15%;
-      }
-    }
   }
 
   &:hover {
