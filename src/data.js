@@ -1,7 +1,7 @@
 export const countries = [
-  { code: 'gb', countryName: 'UK' },
-  { code: 'us', countryName: 'USA'},
-  { code: 'fr', countryName: 'France'},
-  { code: 'au', countryName: 'Australia'},
-  { code: 'in', countryName: 'India'},
+  { code: 'gb', name: 'UK' },
+  { code: 'us', name: 'USA'},
+  { code: 'fr', name: 'France'},
+  { code: 'au', name: 'Australia'},
+  { code: 'in', name: 'India'},
 ]
