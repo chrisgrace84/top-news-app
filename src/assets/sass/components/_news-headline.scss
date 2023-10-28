@@ -7,8 +7,15 @@
   border-radius: $spacing--xxs;
   padding: $spacing--s;
 
+  @include mq($from: s) {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__meta {
-    @include mq($from: s) {
+    margin-top: auto;
+
+    @include mq($from: l) {
       display: flex;
       gap: $gap;
     }
@@ -17,7 +24,7 @@
   &__author {
     position: relative;
 
-    @include mq($from: s) {
+    @include mq($from: l) {
       &:before {
         @include pseudo-element-create;
         width: 1px;

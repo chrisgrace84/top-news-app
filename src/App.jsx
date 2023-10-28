@@ -4,6 +4,7 @@ import CountrySelect from './components/CountrySelect'
 
 import newsLogo from './assets/images/logo.svg'
 import { countries } from './data'
+import { getQueryString } from './util'
 
 import './assets/sass/main.scss'
 
@@ -17,13 +18,23 @@ function App() {
     setCountry(country)
   }
 
+  const queryParams = {
+    country: country?.code,
+    pageSize: 5,
+    apiKey: 'dd96ce9bd71b4a96ba9ada85181978c6',
+  }
+
   useEffect(() => {
     async function fetchNews() {
       try {
-        const res = await fetch(`https://newsapi.org/v2/top-headlines?country=${country?.code}&pageSize=5&apiKey=dd96ce9bd71b4a96ba9ada85181978c6`)
-        const resData = await res.json()
+        const response = await fetch(`https://newsapi.org/v2/top-headlines?${getQueryString(queryParams)}`)
+        const responseData = await response.json()
 
-        setHeadlines(resData?.articles)
+        if(responseData.status !== 'ok') {
+          throw new Error(responseData?.message)
+        }
+
+        setHeadlines(responseData?.articles)
       } catch (error) {
         console.log(error)
       }
