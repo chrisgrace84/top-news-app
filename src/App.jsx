@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import NewsHeadlines from './components/NewsHeadlines'
 import CountrySelect from './components/CountrySelect'
+import Errors from './components/Errors'
 
 import newsLogo from './assets/images/logo.svg'
 import { countries } from './data'
@@ -13,6 +14,7 @@ const initialStateUkNews = countries.find((country) => country?.code === 'gb');
 function App() {
   const [headlines, setHeadlines] = useState([])
   const [country, setCountry] = useState(initialStateUkNews)
+  const [errorMessage, setErrorMessage] = useState(false)
 
   const handleSetCountry = (country) => {
     setCountry(country)
@@ -36,7 +38,7 @@ function App() {
 
         setHeadlines(responseData?.articles)
       } catch (error) {
-        console.log(error)
+        setErrorMessage(error?.message || 'Fetch error!')
       }
     }
 
@@ -54,9 +56,12 @@ function App() {
         countries={countries}
         handleSetCountry={handleSetCountry}
       />
-      <NewsHeadlines
-        headlines={headlines}
-      />
+      {!errorMessage &&
+        <NewsHeadlines
+          headlines={headlines}
+        />
+      }
+      {errorMessage && <Errors message={errorMessage} />}
     </div>
   )
 }

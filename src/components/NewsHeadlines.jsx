@@ -1,7 +1,7 @@
 export default function NewsHeadlines({ headlines }) {
   return (
     <section className="news-app__news">
-      {headlines.length !== 0 &&
+      {headlines && headlines.length !== 0 &&
         <div className="news-app__news-items">
           {headlines.map(({ title, publishedAt, url, author, source }) => (
             <a
