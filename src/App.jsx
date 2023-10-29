@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import classNames from 'classnames'
 import NewsHeadlines from './components/NewsHeadlines'
 import CountrySelect from './components/CountrySelect'
 import Errors from './components/Errors'
@@ -43,14 +44,19 @@ function App() {
         setErrorMessage(error?.message || 'Fetch error!')
       }
 
-      setIsLoading(false)
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 800)
     }
 
     fetchNews()
   }, [country])
 
   return (
-    <div className="news-app">
+    <div className={classNames(
+      "news-app",
+      !isLoading && headlines && headlines.length !== 0 && "news-loaded"
+    )}>
       <section className="news-app__header">
         <img src={newsLogo} alt="Global News" />
         <h1>Global Top News</h1>
@@ -63,7 +69,7 @@ function App() {
       {isLoading &&
         <Loading />
       }
-      {!isLoading && !errorMessage && headlines && headlines.length !== 0 &&
+      {!errorMessage &&
         <NewsHeadlines
           country={country}
           headlines={headlines}

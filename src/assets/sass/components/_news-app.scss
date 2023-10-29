@@ -10,6 +10,12 @@
   &__news {
     text-align: center;
     padding-bottom: $spacing--m;
+    opacity: 0;
+    transition: opacity 0.5s;
+
+    .news-loaded & {
+      opacity: 1;
+    }
 
     &-title {
       font-size: 22px;
