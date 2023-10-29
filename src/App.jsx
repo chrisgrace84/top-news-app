@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import NewsHeadlines from './components/NewsHeadlines'
 import CountrySelect from './components/CountrySelect'
 import Errors from './components/Errors'
+import Loading from "./components/Loading"
 
 import newsLogo from './assets/images/logo.svg'
 import { countries } from './data'
@@ -12,6 +13,7 @@ import './assets/sass/main.scss'
 function App() {
   const [headlines, setHeadlines] = useState([])
   const [country, setCountry] = useState(getCountryByCode('gb'))
+  const [isLoading, setIsLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState(false)
 
   const handleSetCountry = (country) => {
@@ -25,6 +27,8 @@ function App() {
   }
 
   useEffect(() => {
+    setIsLoading(true)
+
     async function fetchNews() {
       try {
         const response = await fetch(`https://newsapi.org/v2/top-headlines?${getQueryString(queryParams)}`)
@@ -38,6 +42,8 @@ function App() {
       } catch (error) {
         setErrorMessage(error?.message || 'Fetch error!')
       }
+
+      setIsLoading(false)
     }
 
     fetchNews()
@@ -54,10 +60,14 @@ function App() {
         countries={countries}
         handleSetCountry={handleSetCountry}
       />
-      {!errorMessage && headlines && headlines.length !== 0 &&
+      {isLoading &&
+        <Loading />
+      }
+      {!isLoading && !errorMessage && headlines && headlines.length !== 0 &&
         <NewsHeadlines
           country={country}
           headlines={headlines}
+          isLoading={isLoading}
         />
       }
       {errorMessage && <Errors message={errorMessage} />}
