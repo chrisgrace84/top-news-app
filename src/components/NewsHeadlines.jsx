@@ -5,7 +5,7 @@ export default function NewsHeadlines({ country, headlines, isLoading }) {
     <section className="news-app__news">
       {!isLoading && headlines && headlines.length !== 0 &&
         <>
-          <h2 className="news-app__news-title">Top News Stories</h2>
+          <h2 className="news-app__news-title">International News Stories</h2>
           <div className="news-app__news-country">{country?.name}</div>
           <div className="news-app__news-items">
             {headlines.map(({ title, publishedAt, url, author, source }) => (
