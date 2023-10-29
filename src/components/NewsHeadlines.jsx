@@ -1,4 +1,4 @@
-import { stripHtml } from "../functions.js";
+import {getFormattedDate, stripHtml} from "../functions.js";
 
 export default function NewsHeadlines({ country, headlines }) {
   return (
@@ -13,6 +13,7 @@ export default function NewsHeadlines({ country, headlines }) {
             target="_blank"
             key={`${publishedAt}-${url}`}
           >
+            {publishedAt && <div className="news-headline__date">{getFormattedDate(publishedAt)}</div>}
             <h3 className="news-headline__title">{stripHtml(title)}</h3>
             <div className="news-headline__meta">
               {author &&

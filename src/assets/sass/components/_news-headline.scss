@@ -12,7 +12,12 @@
     flex-direction: column;
   }
 
+  &__date {
+    font-size: 10px;
+  }
+
   &__meta {
+    font-size: 12px;
     margin-top: auto;
 
     @include mq($from: l) {
