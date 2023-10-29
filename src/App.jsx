@@ -46,7 +46,7 @@ function App() {
 
       setTimeout(() => {
         setIsLoading(false)
-      }, 800)
+      }, 500)
     }
 
     fetchNews()
